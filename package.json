@@ -1,0 +1,29 @@
+{
+  "name": "lighthouse-compare",
+  "version": "0.0.0",
+  "description": "Tool to Record and Compare Google Lighthouse Reports",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/andyfarmerTUISHG/lighthouse-compare-tool.git"
+  },
+  "keywords": [
+    "lighthouse",
+    "node",
+    "performance"
+  ],
+  "author": "Andy Farmer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andyfarmerTUISHG/lighthouse-compare-tool/issues"
+  },
+  "homepage": "https://github.com/andyfarmerTUISHG/lighthouse-compare-tool#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.3",
+    "standard-version": "^7.1.0"
+  }
+}
