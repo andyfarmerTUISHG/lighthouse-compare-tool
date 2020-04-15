@@ -1,6 +1,6 @@
 {
   "name": "lighthouse-compare",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Tool to Record and Compare Google Lighthouse Reports",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/andyfarmerTUISHG/lighthouse-compare-tool#readme",
   "devDependencies": {
+    "lighthouse": "^5.6.0",
     "nodemon": "^2.0.3",
     "standard-version": "^7.1.0"
   }
