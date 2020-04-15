@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/andyfarmerTUISHG/lighthouse-compare-tool/compare/v0.0.2...v0.0.3) (2020-04-15)
+
+
+### Features
+
+* Add Launch Chrome function ([f5d9ddb](https://github.com/andyfarmerTUISHG/lighthouse-compare-tool/commit/f5d9ddb5c9661186392f078a08dda36ec387fa60))
+* Testing launchChrome function ([19ab175](https://github.com/andyfarmerTUISHG/lighthouse-compare-tool/commit/19ab175b9e1a758775ce4c5e6b878c04eb356165))
+
 ### [0.0.2](https://github.com/andyfarmerTUISHG/lighthouse-compare-tool/compare/v0.0.1...v0.0.2) (2020-04-15)
 
 
