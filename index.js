@@ -8,3 +8,5 @@ const launchChrome = (url) => {
     startingUrl: url,
   });
 };
+
+launchChrome("http://akf0676.github.io/");
