@@ -3,15 +3,13 @@ const chromeLauncher = require("chrome-launcher");
 
 console.log("Light House Tool");
 
-const launchChrome = (url) => {
-  chromeLauncher.launch().then((chrome) => {
-    console.log(chrome.port);
+const launchChromeAndRunLighthouse = (url) => {
+  return chromeLauncher.launch().then((chrome) => {
     const opts = {
       port: chrome.port,
     };
-    lighthouse(url, opts).then((results) => {
-      chrome.kill();
-      console.log(results.report);
+    return lighthouse(url, opts).then((results) => {
+      return chrome.kill().then(() => results.report);
     });
   });
 };
