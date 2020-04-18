@@ -8,7 +8,7 @@ const urlParam = argv.url;
 
 if (urlParam) {
   const urlObj = new URL(urlParam);
-  let directoryName = `reports/ ${urlObj.hostname.replace("www.", "")}`;
+  let directoryName = `reports/${urlObj.hostname.replace("www.", "")}`;
 
   if (urlObj.pathname !== "/") {
     //if the URL has a pathname, to replace slashes with underscores
@@ -27,13 +27,26 @@ if (urlParam) {
         port: chrome.port,
       };
       return lighthouse(url, opts).then((results) => {
-        return chrome.kill().then(() => results.report);
+        return chrome.kill().then(() => {
+          return {
+            js: results.lhr,
+            json: results.report,
+          };
+        });
       });
     });
   };
 
   launchChromeAndRunLighthouse(urlParam).then((results) => {
-    console.log(results);
+    //console.log(results);
+    console.log(`Results received - attempt write to disk -${directoryName}`);
+    fs.writeFile(
+      `${directoryName}/${results.js["fetchTime"].replace(/:/g, "_")}.json`,
+      results.json,
+      (err) => {
+        if (err) throw err;
+      }
+    );
   });
 } else {
   console.log(
