@@ -4,7 +4,6 @@ const argv = require("yargs").argv;
 
 console.log("Light House Tool");
 console.log(`----------------------------`);
-console.log(argv.url);
 const url = argv.url;
 
 const launchChromeAndRunLighthouse = (url) => {
@@ -18,6 +17,10 @@ const launchChromeAndRunLighthouse = (url) => {
   });
 };
 
-launchChromeAndRunLighthouse(url).then((results) => {
-  console.log(results);
-});
+if (url) {
+  launchChromeAndRunLighthouse(url).then((results) => {
+    console.log(results);
+  });
+} else {
+  throw `You have not passed a URL to Lighthouse \n eg node index.js --url xxx`;
+}
