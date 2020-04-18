@@ -1,6 +1,6 @@
 {
   "name": "lighthouse-compare",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Tool to Record and Compare Google Lighthouse Reports",
   "main": "index.js",
   "scripts": {
