@@ -1,7 +1,11 @@
 const lighthouse = require("lighthouse");
 const chromeLauncher = require("chrome-launcher");
+const argv = require("yargs").argv;
 
 console.log("Light House Tool");
+console.log(`----------------------------`);
+console.log(argv.url);
+const url = argv.url;
 
 const launchChromeAndRunLighthouse = (url) => {
   return chromeLauncher.launch().then((chrome) => {
@@ -14,4 +18,6 @@ const launchChromeAndRunLighthouse = (url) => {
   });
 };
 
-launchChrome("http://akf0676.github.io/");
+launchChromeAndRunLighthouse(url).then((results) => {
+  console.log(results);
+});

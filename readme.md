@@ -2,6 +2,12 @@
 
 Experiment to capture and compare Lighthouse Reports
 
+## How to run
+
+In order to run the tool:-
+
+`node index.js --url http://akf0676.github.io/`
+
 ## Changes
 
 Within this project supporting conventional commits.
