@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0](https://github.com/andyfarmerTUISHG/lighthouse-compare-tool/compare/v0.0.6...v0.1.0) (2020-04-18)
+
+
+### Features
+
+* Added yargs ([478b999](https://github.com/andyfarmerTUISHG/lighthouse-compare-tool/commit/478b9990d5ff713610cd70560356f81f1269c968))
+
 ### [0.0.6](https://github.com/andyfarmerTUISHG/lighthouse-compare-tool/compare/v0.0.5...v0.0.6) (2020-04-16)
 
 ### [0.0.5](https://github.com/andyfarmerTUISHG/lighthouse-compare-tool/compare/v0.0.4...v0.0.5) (2020-04-15)
