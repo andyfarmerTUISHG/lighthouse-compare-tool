@@ -36,6 +36,12 @@ Take advantage of [Glob](https://www.npmjs.com/package/glob) in `sync` execution
 
 If there is a list fo reports - use `path` to parse the report data to get a list of all timestamps
 
+Comparisons will be run on every new request, if there are pre-existing saved reports.
+
+It is also possible to run a comparison of two reports:-
+
+`node index.js --from domain1.com/dateTtime --to domain1.com/dateTtime`
+
 ## Changes
 
 Within this project supporting conventional commits.

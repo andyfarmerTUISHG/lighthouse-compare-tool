@@ -47,7 +47,20 @@ const getLatestReport = (previousReports) => {
   return new Date(latestReportDateStamp).toISOString();
 };
 
-if (urlParam) {
+const getReport = (pathString) => {
+  const reportContent = fs.readFileSync(pathString, "utf8", (err, results) => {
+    return report;
+  });
+  return JSON.parse(reportContent);
+};
+
+if (argv.from && argv.to) {
+  console.log(`have from and to variables....`);
+  compareReports(
+    getReport("reports/" + argv.from + ".json"),
+    getReport("reports/" + argv.to + ".json")
+  );
+} else if (urlParam) {
   const urlObj = new URL(urlParam);
   let directoryName = `reports/${urlObj.hostname.replace("www.", "")}`;
 
@@ -71,17 +84,9 @@ if (urlParam) {
       console.log(`Getting Latest Report`);
       let recentReport = getLatestReport(previousReports);
 
-      // IFFE (Immediately invoked function expression) - to get load latest report contents
-      const recentReportContents = (() => {
-        const reportContents = fs.readFileSync(
-          directoryName + "/" + recentReport.replace(/:/g, "_") + ".json",
-          "utf8",
-          (error, results) => {
-            return results;
-          }
-        );
-        return JSON.parse(reportContents);
-      })();
+      const recentReportContents = getReport(
+        directoryName + "/" + recentReport.replace(/:/g, "_") + ".json"
+      );
 
       compareReports(recentReportContents, results.js);
     }
@@ -97,6 +102,7 @@ if (urlParam) {
   });
 } else {
   console.log(
-    `You have not passed a URL to Lighthouse \n eg node index.js --url xxx`
+    `**********************\n**                  **\n**    Ooops!!!      **\n**                  **\n**********************\nYou have not passed a URL to Lighthouse \n eg. node index.js --url xxx \n
+or requested a report comparison\n eg. node index.js --from domain1.com/dateTtime --to domain1.com/dateTtime`
   );
 }
