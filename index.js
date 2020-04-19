@@ -27,10 +27,48 @@ const launchChromeAndRunLighthouse = (url) => {
 };
 
 const compareReports = (from, to) => {
+  const metricFilter = [
+    "first-contentful-paint",
+    "first-meaningful-paint",
+    "speed-index",
+    "estimated-input-latency",
+    "total-blocking-time",
+    "max-potential-fid",
+    "time-to-first-byte",
+    "first-cpu-idle",
+    "interactive",
+  ];
+
+  const calcPercentageDiff = (from, to) => {
+    const per = ((to - from) / from) * 100;
+    return Math.round(per * 100) / 100;
+  };
+
   console.log(`Compare Reports....\n____________________________________`);
   console.log(`Comparing ${from["fetchTime"]} to ${to["fetchTime"]}`);
-  console.log(from["finalUrl"] + " " + from["fetchTime"]);
-  console.log(to["finalUrl"] + " " + to["fetchTime"]);
+  console.log(`\n____________________________________`);
+
+  for (let auditObj in from["audits"]) {
+    if (metricFilter.includes(auditObj)) {
+      const percentageDiff = calcPercentageDiff(
+        from["audits"][auditObj].numericValue,
+        to["audits"][auditObj].numericValue
+      );
+      let logColor = "\x1b[37m";
+      const log = (() => {
+        if (Math.sign(percentageDiff) === 1) {
+          logColor = "\x1b[31m";
+          return `${percentageDiff + "%"} slower`;
+        } else if (Math.sign(percentageDiff) === 0) {
+          return "unchanged";
+        } else {
+          logColor = "\x1b[32m";
+          return `${percentageDiff + "%"} faster`;
+        }
+      })();
+      console.log(logColor, `${from["audits"][auditObj].title} is ${log}`);
+    }
+  }
 };
 
 const getLatestReport = (previousReports) => {

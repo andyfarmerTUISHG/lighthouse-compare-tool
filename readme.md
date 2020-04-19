@@ -42,6 +42,20 @@ It is also possible to run a comparison of two reports:-
 
 `node index.js --from domain1.com/dateTtime --to domain1.com/dateTtime`
 
+## Comparison Logic
+
+Items for comparison are held in a `metricFilter` this is used to review the items returned from the Lighthouse `audit` object, and cross reference it to the other passed report.
+
+Results output:-
+
+- Log color (Green for negative, red for positive, white for unchanged)
+- Log text contents change.
+  - [Name] is X% slower for positive numbers
+  - [Name] is X% faster’ for negative numbers
+  - [Name] is unchanged’ for numbers with no percentage difference.
+
+There are many ways th
+
 ## Changes
 
 Within this project supporting conventional commits.
