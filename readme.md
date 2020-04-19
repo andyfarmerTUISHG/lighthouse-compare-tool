@@ -30,6 +30,12 @@ project
 
 Reports will be named with a timestamp so no two reports will be the same, and will enable the ability to distinguish between reports.
 
+## Compare Reports
+
+Take advantage of [Glob](https://www.npmjs.com/package/glob) in `sync` execution to collect all reports stored in a domain directory, so we ensure we know how many reports exist. Comparison will only execute if previous reports exist.
+
+If there is a list fo reports - use `path` to parse the report data to get a list of all timestamps
+
 ## Changes
 
 Within this project supporting conventional commits.
