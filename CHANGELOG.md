@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/andyfarmerTUISHG/lighthouse-compare-tool/compare/v1.2.0...v2.0.0) (2020-04-19)
+
+
+### Features
+
+* Compare Any 2 reports ([683b806](https://github.com/andyfarmerTUISHG/lighthouse-compare-tool/commit/683b8060db2f7eb65f73bc154f5d06050f08f48c))
+
 ## [1.2.0](https://github.com/andyfarmerTUISHG/lighthouse-compare-tool/compare/v1.1.1...v1.2.0) (2020-04-19)
 
 
