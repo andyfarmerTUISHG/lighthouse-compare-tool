@@ -68,3 +68,5 @@ Pre-fix commits with one of the following:
 - refactor: Refactor,
 - test: Adding missing tests,
 - chore: Maintenance
+
+Inspired by [CSS-Tricks](https://css-tricks.com/build-a-node-js-tool-to-record-and-compare-google-lighthouse-reports/)
