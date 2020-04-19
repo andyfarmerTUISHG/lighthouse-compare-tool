@@ -5,6 +5,24 @@ const url = require("url");
 const fs = require("fs");
 
 const urlParam = argv.url;
+console.log("Light House Tool");
+console.log(`----------------------------`);
+
+const launchChromeAndRunLighthouse = (url) => {
+  return chromeLauncher.launch().then((chrome) => {
+    const opts = {
+      port: chrome.port,
+    };
+    return lighthouse(url, opts).then((results) => {
+      return chrome.kill().then(() => {
+        return {
+          js: results.lhr,
+          json: results.report,
+        };
+      });
+    });
+  });
+};
 
 if (urlParam) {
   const urlObj = new URL(urlParam);
@@ -17,25 +35,6 @@ if (urlParam) {
   if (!fs.existsSync(directoryName)) {
     fs.mkdirSync(directoryName);
   }
-
-  console.log("Light House Tool");
-  console.log(`----------------------------`);
-
-  const launchChromeAndRunLighthouse = (url) => {
-    return chromeLauncher.launch().then((chrome) => {
-      const opts = {
-        port: chrome.port,
-      };
-      return lighthouse(url, opts).then((results) => {
-        return chrome.kill().then(() => {
-          return {
-            js: results.lhr,
-            json: results.report,
-          };
-        });
-      });
-    });
-  };
 
   launchChromeAndRunLighthouse(urlParam).then((results) => {
     //console.log(results);
